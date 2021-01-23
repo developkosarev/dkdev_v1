@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>		
+	@@include('./template/head.html', {
+		"title": "Download",
+		"cont": {
+			"descr": "Download",
+			"keywords": "Download"
+		}
+	})	
+</head>
+
+<body>
+	@@include('./template/navbar.html')
+
+<div class="container"> 
+	<h1 class="text-center">Download</h1>
+	
+	<img class="img-fluid rounded mx-auto d-block lazyload" data-src="img/forest-path-5012976.jpg" alt="Папка с файлами" />
+	
+	<p>
+	Загрузка большого изображения №1
+	</p>
+	
+	<img class="img-fluid rounded mx-auto d-block lazyload" data-src="img/city-5000648.jpg" alt="Папка с файлами" />
+	
+	<p>
+	Загрузка большого изображения №2
+	</p>
+</div>
+
+	@@include('./template/footer.html')
+	@@include('./template/scripts.html')
+</body>
+</html>
