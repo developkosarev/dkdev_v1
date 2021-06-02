@@ -7,4 +7,6 @@ $(document).ready(function () {
             $(this).addClass('active');
         }        
     });
+
+    $('.slider').bxSlider();
 });

@@ -18,8 +18,11 @@
 //= ../../../node_modules/bootstrap/js/dist/tab.js
 //= ../../../node_modules/bootstrap/js/dist/toast.js
 
-// Lazysizes
+// Import Lazysizes
 //= ../../../node_modules/lazysizes/lazysizes.js
+
+// Import Bxslider
+//= ../../../node_modules/bxslider/src/js/jquery.bxslider.js
 
 // Import js
 //= my.js
