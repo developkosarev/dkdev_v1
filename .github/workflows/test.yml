@@ -40,9 +40,12 @@ jobs:
       - name: Install NVM
         # команда для установки NVM из официального README.md NVM
         run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
       # Активируем NVM
       - name: Activate NVM
         run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+        run: nvm --version
+
       # Устанавливаем нужную версию Node.js 14.17.0
       - name: Install node.js
         # Мы ставим нужную версию в переменную окружения,
@@ -51,6 +54,7 @@ jobs:
           NODE_VERSION: 14.17.0
         # запускаем NVM для установки Node.js
         run: nvm install
+
       # Установка зависимостей проекта
       - name: Install dependencies
         run: npm install
