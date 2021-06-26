@@ -36,8 +36,8 @@ jobs:
       # В текущем случае это клонирование репозитория
       - uses: actions/checkout@v2
       
-      - name: Init NVM
-        run: touch $HOME/.bash_profile
+      #- name: Init NVM
+      #  run: touch $HOME/.bash_profile
 
       # Установка NVM
       # имя для отображения в интерфейсе GitHub
@@ -48,6 +48,10 @@ jobs:
       # Активируем NVM
       - name: Activate NVM
         run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+
+      # Перезаружаем Bush
+      - name: Reload Bush
+        run: source ~/.profile 
 
       # Версия NVM  
       - name: Version NVM
