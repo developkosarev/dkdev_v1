@@ -1,86 +1,30 @@
-# имя нашего workflow. Используется исключительно для отображения в интерфейсе GitHub
-name: test
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-# правила срабатывания - события GitHub, на которые
-# должен срабатывать текущий workflow.
+name: Node.js CI
+
 on:
-  # push
   push:
-    # в ветку с именем master. Квадратные скобки нужны для указания
-    # нескольких веток, например, [master, developer]
-    branches: [master]
-  # при создании pull request
+    branches: [ master ]
   pull_request:
-    # в ветку master
-    branches: [master]
+    branches: [ master ]
 
-# workflow состоит из одной или нескольких job
-# job работают параллельно по умолчанию
 jobs:
-  # название job, на которое можно ссылаться из других мест,
-  # например, когда нам нужно указать, что две jobs
-  # работают последовательно:
-  # jobs:
-  #   build:
-  #   eslint:
-  #     needs: build
-  eslint:
-    # имя для отображения в интерфейсе GitHub
-    name: ESLint
-    # обязательный параметр, который указывает где будет запущена job: облачный runner, self-hosted и т.д.
+  build:
+
     runs-on: ubuntu-latest
-    # последовательные задачи (шаги), важно помнить, что переменные окружения не сохраняются
-    # между шагами и их нужно пробрасывать, если требуется.
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      # указываем action, который будет запущен как часть job
-      # В текущем случае это клонирование репозитория
-      - uses: actions/checkout@v2
-      
-      #- name: Init NVM
-      #  run: touch $HOME/.bash_profile
-
-      - name: LS
-        run: pwd && ls -la
-
-      - name: HOME
-        run: echo "$HOME"
-
-      - name: LS $HOME
-        run: ls $HOME -la
-
-      # Установка NVM
-      # имя для отображения в интерфейсе GitHub
-      - name: Install NVM
-        # команда для установки NVM из официального README.md NVM
-        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-
-      # Активируем NVM
-      - name: Activate NVM
-        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use        
-
-      - name: Install NVM
-        run: eval "[ -f .nvmc ] && nvm install"
-
-      # Перезаружаем Bush
-      #- name: Reload Bush
-      #  run: source $HOME/.bashrc
-
-      # Версия NVM  
-      - name: Version NVM
-        run: nvm --version
-
-      # Устанавливаем нужную версию Node.js 14.17.0
-      - name: Install node.js
-        # Мы ставим нужную версию в переменную окружения,
-        # которую NVM будет использовать
-        env:
-          NODE_VERSION: 14.17.0
-        # запускаем NVM для установки Node.js
-        run: nvm install
-
-      # Установка зависимостей проекта
-      - name: Install dependencies
-        run: npm install
-      # Запуск ESLint
-      #- name: Lint source code with ESLint
-      #  run: npm run eslint
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
