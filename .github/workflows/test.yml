@@ -35,6 +35,10 @@ jobs:
       # указываем action, который будет запущен как часть job
       # В текущем случае это клонирование репозитория
       - uses: actions/checkout@v2
+      
+      - name: Init NVM
+        run: touch $HOME/.bash_profile
+
       # Установка NVM
       # имя для отображения в интерфейсе GitHub
       - name: Install NVM
