@@ -39,6 +39,9 @@ jobs:
       #- name: Init NVM
       #  run: touch $HOME/.bash_profile
 
+      - name: LS
+        run: ls -la
+
       # Установка NVM
       # имя для отображения в интерфейсе GitHub
       - name: Install NVM
@@ -49,9 +52,12 @@ jobs:
       - name: Activate NVM
         run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
 
+      - name: LS
+        run: ls -la  
+
       # Перезаружаем Bush
       - name: Reload Bush
-        run: source ~/.profile 
+        run: source ~/.bashrc
 
       # Версия NVM  
       - name: Version NVM
