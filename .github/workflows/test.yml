@@ -59,7 +59,7 @@ jobs:
         run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use        
 
       - name: Install NVM
-        run: eval "[ -f .nvmc ] $$ nvm install"
+        run: eval "[ -f .nvmc ] && nvm install"
 
       # Перезаружаем Bush
       #- name: Reload Bush
