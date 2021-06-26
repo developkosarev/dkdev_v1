@@ -34,7 +34,7 @@ jobs:
     steps:
       # указываем action, который будет запущен как часть job
       # В текущем случае это клонирование репозитория
-      #- uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       
       #- name: Init NVM
       #  run: touch $HOME/.bash_profile
@@ -52,15 +52,15 @@ jobs:
         run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
       # Активируем NVM
-      - name: Activate NVM
-        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+      #- name: Activate NVM
+      #  run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
 
       - name: LS
         run: pwd && ls -la  
 
       # Перезаружаем Bush
-      - name: Reload Bush
-        run: source ~/.bashrc
+      #- name: Reload Bush
+      #  run: source ~/.bashrc
 
       # Версия NVM  
       - name: Version NVM
@@ -73,7 +73,7 @@ jobs:
         env:
           NODE_VERSION: 14.17.0
         # запускаем NVM для установки Node.js
-        run: nvm install
+        run: nvm install $NODE_VERSION
 
       # Установка зависимостей проекта
       - name: Install dependencies
