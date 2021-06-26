@@ -34,13 +34,16 @@ jobs:
     steps:
       # указываем action, который будет запущен как часть job
       # В текущем случае это клонирование репозитория
-      - uses: actions/checkout@v2
+      #- uses: actions/checkout@v2
       
       #- name: Init NVM
       #  run: touch $HOME/.bash_profile
 
       - name: LS
         run: pwd && ls -la
+
+      - name: HOME
+        run: echo "$HOME"
 
       # Установка NVM
       # имя для отображения в интерфейсе GitHub
