@@ -40,7 +40,7 @@ jobs:
       #  run: touch $HOME/.bash_profile
 
       - name: LS
-        run: ls -la
+        run: pwd && ls -la
 
       # Установка NVM
       # имя для отображения в интерфейсе GitHub
@@ -53,7 +53,7 @@ jobs:
         run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
 
       - name: LS
-        run: ls -la  
+        run: pwd && ls -la  
 
       # Перезаружаем Bush
       - name: Reload Bush
