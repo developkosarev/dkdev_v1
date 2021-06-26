@@ -56,15 +56,14 @@ jobs:
 
       # Активируем NVM
       - name: Activate NVM
-      #  run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
-        run: export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use        
 
       - name: LS
         run: pwd && ls -la  
 
       # Перезаружаем Bush
-      #- name: Reload Bush
-      #  run: source ~/.bashrc
+      - name: Reload Bush
+        run: source $HOME/.bashrc
 
       # Версия NVM  
       - name: Version NVM
