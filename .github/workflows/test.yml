@@ -67,7 +67,7 @@ jobs:
 
       # Версия NVM  
       - name: Version NVM
-        run: nvm --version
+        run: $NVM_DIR/nvm.sh --version
 
       # Устанавливаем нужную версию Node.js 14.17.0
       - name: Install node.js
