@@ -57,9 +57,7 @@ jobs:
       # Активируем NVM
       - name: Activate NVM
       #  run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
-        run: export NVM_DIR="$HOME/.nvm" 
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        run: export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
       - name: LS
         run: pwd && ls -la  
