@@ -48,7 +48,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rigger = require('gulp-rigger'),
     sourcemaps = require('gulp-sourcemaps'),
-    sass = require('gulp-sass'),
+	sass = require('gulp-sass')(require('sass')),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
     uglify = require('gulp-uglify'),
@@ -87,7 +87,7 @@ gulp.task('html:build', function () {
 // sri
 gulp.task('html:sri', function () {
     return gulp.src(path.build.sri)
-        .pipe(sriHash())
+        //.pipe(sriHash())
         .pipe(gulp.dest(path.build.html));        
 });
 

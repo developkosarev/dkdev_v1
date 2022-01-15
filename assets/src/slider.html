@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>		
+	@@include('./template/head.html', {
+		"title": "Slider",
+		"cont": {
+			"descr": "Slider",
+			"keywords": "Slider"
+		}
+	})	
+</head>
+
+<body>
+	@@include('./template/navbar.html')
+
+<div class="container"> 
+	<h1 class="text-center">Slider</h1>
+
+	<div class="slider-slick">
+		<div class="slider-slick__item">
+			1your content
+		</div>
+		<div class="slider-slick__item">
+			2your content
+		</div>
+		<div class="slider-slick__item">
+			3your content
+		</div>
+		<div class="slider-slick__item">
+			4your content
+			<img data-lazy="img/forest-path-5012976.jpg"/>
+		</div>
+		<div class="slider-slick__item">
+			5your content
+			<img data-lazy="img/city-5000648.jpg"/>
+		</div>
+	</div>
+
+</div>
+
+	@@include('./template/footer.html')
+	@@include('./template/scripts.html')
+</body>
+</html>

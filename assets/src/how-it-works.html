@@ -34,5 +34,93 @@
 			</section>
 		</div>
 	</main>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js" integrity="sha512-5vwN8yor2fFT9pgPS9p9R7AszYaNn0LkQElTXIsZFCL7ucT8zDCAqlQXDdaqgA1mZP47hdvztBMsIoFxq/FyyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<div class="chart-container" style="position: relative; height:40vh; width:40vw">
+		<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+
+	<div class="chart-container" style="position: relative; height:40vh; width:40vw">
+		<canvas id="pieChart" width="400" height="400"></canvas>
+	</div>
+	
+	<script>		
+		var ctx = document.getElementById('myChart');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+				datasets: [{
+					label: '# of Votes',
+					data: [12, 19, 3, 5, 2, 3],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+
+		let ctx2 = document.getElementById('pieChart');
+
+		const data = {
+			labels: [
+			  'Red',
+			  'Blue',
+			  'Yellow'
+			],
+			datasets: [{
+			  label: 'My First Dataset',
+			  data: [300, 50, 100],
+			  backgroundColor: [
+				'rgb(255, 99, 132)',
+				'rgb(54, 162, 235)',
+				'rgb(255, 205, 86)'
+			  ],
+			  hoverOffset: 4
+			}]
+		  };
+
+		const options = {
+			plugins: {
+				legend: {
+					display: true,
+					position: 'left'
+				}
+			}
+		};
+
+		const config = {
+			type: 'pie',
+			data: data,
+			options: options,
+		  };
+
+		var myChart = new Chart(ctx2, config);
+
+
+	</script>
+	
 </body>
 </html>

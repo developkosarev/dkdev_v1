@@ -24,5 +24,8 @@
 // Import Bxslider
 //= ../../../node_modules/bxslider/src/js/jquery.bxslider.js
 
+// Import Slick-carousel
+//= ../../../node_modules/slick-carousel/slick/slick.min.js
+
 // Import js
 //= my.js

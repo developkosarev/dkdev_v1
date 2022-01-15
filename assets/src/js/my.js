@@ -9,4 +9,11 @@ $(document).ready(function () {
     });
 
     $('.slider').bxSlider();
+
+
+    $('.slider-slick').slick({
+        lazyLoad: 'ondemand',
+        slidesToShow: 3,
+        slidesToScroll: 1
+    });
 });

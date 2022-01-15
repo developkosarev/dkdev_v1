@@ -70,3 +70,12 @@ $width-2: 40%;
 		flex: 0 0 $width-1;
 	}
 }
+
+.slider-slick__item {
+	border: black solid 2px;
+	height: 200px;
+}
+
+.slider-slick__item img {
+	width: 100%;
+}
