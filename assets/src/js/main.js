@@ -29,3 +29,4 @@
 
 // Import js
 //= my.js
+//= clock.js

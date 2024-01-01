@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>		
+	@@include('./template/head.html', {
+		"title": "Clock",
+		"cont": {
+			"descr": "Clock",
+			"keywords": "Clock"
+		}
+	})	
+</head>
+
+<body>
+	@@include('./template/navbar.html')
+
+<div class="container"> 
+	<h1 class="text-center">Clock</h1>
+	
+	<div class="row justify-content-md-center">
+		<div class="col">
+		  1 of 2
+		</div>
+	</div>
+
+	<svg id="clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="max-width: 50%;">  
+		<circle fill="#99AAB5" cx="50" cy="50" r="50"/>
+		<circle fill="#E1E8ED" cx="50" cy="50" r="45"/>	  
+		<line id="hours" x1="0" y1="0" x2="0" y2="30"
+			stroke-linecap="round"
+			stroke-width="4"
+			stroke="yellow"
+			transform="translate(50,50) rotate(-10 0 0)"/>		
+		<line id="minutes" x1="0" y1="0" x2="0" y2="40"
+			stroke-linecap="round"
+			stroke-width="3"
+			stroke="red"
+			transform="translate(50,50) rotate(10 0 0)"/>			
+		
+		<line id="seconds" x1="0" y1="25" x2="0" y2="40"
+			stroke-linecap="round"
+			stroke-width="2"
+			stroke="#fff"
+			transform="translate(50,50) rotate(90 0 0)"/>			
+	  </svg>
+
+
+	  <!--
+	  <svg id="clock2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" style="max-width: 50%;">  
+		<circle fill="#99AAB5" cx="18" cy="18" r="18"/>
+		<circle fill="#E1E8ED" cx="18" cy="18" r="14"/>	  
+		<line id="hours2" x1="0" y1="0" x2="0" y2="8"
+			stroke-linecap="round"
+			stroke-width="2"
+			stroke="#66757F"
+			transform="translate(18,18) rotate(180 0 0)"/>
+		<line id="minutes2" x1="0" y1="0" x2="0" y2="12"
+			stroke-linecap="round"
+			stroke-width="2"
+			stroke="#66757F"
+			transform="translate(18,18) rotate(258 0 0)"/>			
+		<line id="seconds2" x1="0" y1="0" x2="0" y2="12"
+			stroke-linecap="round"
+			stroke-width="1"
+			stroke="#fff"
+			transform="translate(18,18) rotate(310 0 5)"/>
+	  </svg>
+	  -->
+
+</div>
+
+	@@include('./template/footer.html')
+	@@include('./template/scripts.html')
+</body>
+</html>
